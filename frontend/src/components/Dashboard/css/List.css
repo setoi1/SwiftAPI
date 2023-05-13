@@ -1,0 +1,109 @@
+.List {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #373737;
+  flex-direction: column;
+}
+
+.list_title {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-direction: column;
+  text-align: left;
+  margin: auto;
+  background-color: #232323;
+  color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px 20px;
+  margin: 0;
+}
+
+.list_title h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.list_title h4 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 0;
+  padding: 0;
+}
+
+.list_form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  justify-content: center;
+  background-color: #e3e4ec;
+  padding: 20px 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.list_form label {
+  font-weight: 500;
+  color: #000;
+}
+
+.list_form input {
+  border-radius: 5px;
+  border: none;
+  height: 25px;
+}
+
+.list_form input,
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.list_form input {
+  padding: 8px;
+  font-size: 1em;
+}
+
+.list_form textarea {
+  resize: vertical;
+  height: 50px;
+}
+
+.list_form_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list_form_button p {
+  color: black;
+}
+
+.list_form_button button {
+  border-radius: 5px;
+  border-color: transparent;
+  background-color: #232323;
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  box-shadow: 0 5px 0 #121212;
+}
+
+.list_form_button button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.submit-button {
+  margin: 12px !important;
+}

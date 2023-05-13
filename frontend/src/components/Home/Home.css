@@ -1,0 +1,55 @@
+.homepage-container {
+    height: 100%;
+    min-height: fit-content;
+
+}
+
+.fullwidth-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0 10% 0 10%;
+}
+
+.fullwidth-card:nth-child(2n) {
+    background-color: rgb(231, 231, 231);
+}
+
+.content-2 { /* used for a flex container with 2 inline elements */
+    flex-basis: 50%;
+    padding: 0px;
+}
+
+.content-2 img {
+    width: 116%;
+    transform: translateX(-8%);
+    z-index: -9999;
+}
+
+.content-3 { /* used for a flex container with 3 inline elements */
+    flex-basis: 33%;
+    padding: 5%;
+}
+
+.content-centered {
+    text-align: center;
+}
+
+.homepage-opener {
+    font-size: 3.5em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 8% 0 8%;
+    box-sizing: border-box;
+}
+
+.homepage-opener p {
+    margin: 0px;
+    text-align: left;
+    color: black;
+    white-space: nowrap;
+}

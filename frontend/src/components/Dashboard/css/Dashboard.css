@@ -1,0 +1,25 @@
+h3 {
+  color: white;
+  text-align: left;
+}
+
+.dashboard-container {
+  height: 100%;
+  padding: 0px 15%;
+  background-color: rgb(46, 45, 45);
+  display: flex;
+  flex-direction: column;
+}
+
+.api-card-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: min-content;
+}
+
+.api-card-container > div {
+  margin: 6px;
+}

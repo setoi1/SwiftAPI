@@ -1,0 +1,10 @@
+.listDialog {
+  display: none;
+  width: 50%;
+  height: 50%;
+  color: black;
+}
+
+.list-dialog-steps p {
+  color: black;
+}
