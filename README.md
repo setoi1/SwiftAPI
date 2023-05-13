@@ -1,4 +1,4 @@
-﻿# SwiftAPI
+﻿# SwiftAPI (Migrated from school repo)
 SwiftAPI Project for Summer 2022 Software Engineering Course
 
 https://swift-api-senior-project.herokuapp.com/
