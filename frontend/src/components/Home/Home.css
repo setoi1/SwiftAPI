@@ -1,7 +1,6 @@
 .homepage-container {
     height: 100%;
     min-height: fit-content;
-
 }
 
 .fullwidth-card {
@@ -52,4 +51,29 @@
     text-align: left;
     color: black;
     white-space: nowrap;
+}
+
+.go-button {
+    height: 2rem;
+    width: 6rem;
+    background-color: #3449eb;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    font-family: "Outfit", sans-serif;
+    transition: 0.3s;
+}
+
+.go-button:hover {
+    cursor: pointer;
+    opacity: .75;
+    transition: 0.25s;
+}
+
+.landing-footer {
+    background-color: lightgrey;
+    height: 15vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
 }

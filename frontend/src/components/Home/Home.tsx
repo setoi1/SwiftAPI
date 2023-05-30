@@ -11,22 +11,15 @@ const Home = () => {
             has <i>never</i>
           </p>
           <p> been easier</p>
+          <button className="go-button">Get Started</button>
         </div>
         <div className="content-2">
           <img
-            src="/stolen_api_animation.gif"
-            alt="totally used with permission" />
+            src="/landingAPI.gif"
+            alt="" />
         </div>
       </div>
-      <div className="fullwidth-card">
-        <div className="content-3 content-centered">We can do this!</div>
-        <div className="content-3 content-centered">We can do this, too</div>
-        <div className="content-3 content-centered">We can even also do this thing!</div>
-      </div>
-      <div className="fullwidth-card">
-        <div className="content-2">Put something here?</div>
-        <div className="content-2">Put something here too, img i dunno</div>
-      </div>
+      <div className="landing-footer"></div>
     </div>
   );
 };
