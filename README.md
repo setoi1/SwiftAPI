@@ -1,6 +1,6 @@
 ![logo](https://github.com/setoi1/SwiftAPI/assets/56894020/da62542b-e352-48de-9eaa-24b8ee16d744)
 
-# SwiftAPI (Migrated from school repo)
+# SwiftAPI
 SwiftAPI Project for Summer 2022 Software Engineering Course
 
 ![landing-page](https://github.com/setoi1/SwiftAPI/assets/56894020/805ae43e-2e81-42d0-ad87-fe88be358873)
