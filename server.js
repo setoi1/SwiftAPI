@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const app = express();
 
-const router = require("./backend/api/router");
+const router = require("./backend/src/router");
 const path = require("path");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
