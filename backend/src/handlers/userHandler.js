@@ -7,13 +7,13 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_TEST_KEY);
 
 module.exports = {
-  register: async (req, res) => {
-    const { username, password, firstName, lastName, email, developer } =
-      req.body;
+  register: async (req, res, next) => {
+    console.log(req.body)
+    const { username, password, firstName, lastName, email, developer } = req.body;
 
     const emailFilter = { email: email };
     const usernameFilter = { username: username };
-
+    
     try {
       // Check for existing email
       const checkEmail = await User.findOne(emailFilter);
@@ -35,77 +35,93 @@ module.exports = {
 
       // Password encryption and storing in Mongo
       const saltRounds = 10;
-      bcrypt.hash(password, saltRounds, (err, hash) => {
+
+      bcrypt.hash(password, saltRounds, (e, hash) => {
         const newUser = new User({
           username: username,
           password: hash,
-          firstName: firstName,
-          lastName: lastName,
           email: email,
           developer: developer,
         });
-        newUser.save().then((response) => {
-          res.status(200).json({
-            message: "User has been successfully created.",
-            success: true,
-            newUser,
+        newUser.save()
+        /*
+          .then((res) => {
+            console.log('save!')
+            res.status(200).json({
+              message: "User has been successfully created.",
+              success: true,
+              newUser,
+            });
           });
-        });
+        */
       });
-    } catch (err) {
+    } catch (e) {
       res.status(401).json({
         message: "Failed to create user",
-        error: err.message,
+        error: e.message,
       });
     }
   },
 
-  login: async (req, res, next) => {
+  login: async (req, res) => {
     try {
-      passport.authenticate("local", (err, user) => {
-        if (err) res.status(401).json({ message: err, valid: false });
-        if (!user)
-          res.status(401).json({
-            message: "Please check email and password and try again.",
-            valid: false,
-          });
-        else {
-          req.login(user, (err) => {
-            if (err) res.status(401).json({ message: err, valid: false });
+      passport.authenticate("local", (e, user) => {
+        if (e) {
+          res.status(401).json({ message: e, valid: false });
+        }
+        if (user) {
+          req.login(user, (e) => {
+            if (e) res.status(401).json({ message: e, valid: false });
+            req.session.user = {
+              uuid: '1234-5678'
+            }
+            req.session.save(e => {
+              if (e) {
+                console.error(e);
+              } else {
+                res.send(req.session.user);
+              }
+            })
             res.status(200).json({
               message: "Successfully logged in.",
               valid: true,
             });
           });
         }
-      })(req, res, next);
-    } catch (err) {
-      res.status(401).json({
-        message: "An error has occurred",
-        error: err.message,
+        else {
+          res.status(401).json({
+            message: "Please check email and password and try again.",
+            valid: false,
+          });
+        }
       });
+    } catch (e) {
+        res.status(401).json({
+          message: "An error has occurred",
+          error: e.message,
+        });
     }
   },
 
-  logout: async (req, res, next) => {
+  logout: async (req, res) => {
     try {
-      req.logout((err) => {
-        if (err) {
-          return next(err);
-        }
+      req.logout((e) => {
+        if (e) res.status(401).json({ message: e, valid: false });;
+        req.session.destroy();
+        res.redirect('/');
         res.status(200).json({
           message: "Successfully logged out.",
           valid: true,
         });
       });
-    } catch (err) {
-      console.log(err);
+    } catch (e) {
       res.status(401).json({
         message: "An error has occurred",
-        error: err.message,
+        error: e.message,
       });
     }
   },
+
   dashboard: async (req, res) => {
     if (req.user) {
       const subx = await Subscription.find({ username: req.user.username });
