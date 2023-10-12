@@ -30,7 +30,7 @@ https://youtu.be/dmgTZil95nc
 
 ## Contributors
 
+* Ian Seto
 * Owen Moreau
 * Andrew Galvin
 * Parker Dowdy
-* Ian Seto
